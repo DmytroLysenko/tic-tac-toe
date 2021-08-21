@@ -1,0 +1,11 @@
+.container {
+  width: 900px;
+  min-height: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  padding-bottom: 30px;
+  background-color: #3d5779;
+
+  display: flex;
+  position: relative;
+}

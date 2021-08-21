@@ -1,0 +1,194 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 5px;
+  width: 400px;
+  height: 400px;
+
+  border-radius: 10px;
+  position: relative;
+}
+
+.item {
+  background-color: #2b405f;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.item_free:hover {
+  background-color: #48638f;
+}
+
+.item_X::after {
+  content: "";
+  width: 100%;
+  height: 7%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 50% 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.item_X::before {
+  content: "";
+  width: 100%;
+  height: 7%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 50% 50%;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+.item_O::after {
+  content: "";
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.item_O::before {
+  content: "";
+  width: 73%;
+  height: 73%;
+  border-radius: 50%;
+  background-color: inherit;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.gap {
+  transform: scale(1.05);
+  background-color: #835db6;
+  border-radius: 10px;
+  position: absolute;
+}
+
+.gap_horiz {
+  composes: gap;
+  width: 100%;
+  height: 3%;
+}
+
+.gap_vert {
+  composes: gap;
+  height: 100%;
+  width: 3%;
+}
+
+.gap_horiz_top {
+  composes: gap_horiz;
+  top: 31%;
+  left: 0;
+}
+
+.gap_horiz_bottom {
+  composes: gap_horiz;
+  bottom: 31%;
+  left: 0;
+}
+
+.gap_vert_left {
+  composes: gap_vert;
+  top: 0;
+  left: 31%;
+}
+
+.gap_vert_right {
+  composes: gap_vert;
+  bottom: 0;
+  right: 31%;
+}
+
+.lineWin_none {
+  display: none;
+}
+
+.lineWin_horiz {
+  width: 90%;
+  height: 2%;
+  border-radius: 10px;
+  background-color: #f00;
+  position: absolute;
+
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+}
+
+.lineWin_horiz__top {
+  composes: lineWin_horiz;
+  top: 15%;
+}
+
+.lineWin_horiz__center {
+  composes: lineWin_horiz;
+  top: 50%;
+}
+
+.lineWin_horiz__buttom {
+  composes: lineWin_horiz;
+  bottom: 15%;
+}
+
+.lineWin_vert {
+  height: 90%;
+  width: 2%;
+  border-radius: 10px;
+  background-color: #f00;
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 500;
+}
+
+.lineWin_vert__left {
+  composes: lineWin_vert;
+  left: 15%;
+}
+
+.lineWin_vert__center {
+  composes: lineWin_vert;
+  left: 50%;
+}
+
+.lineWin_vert__right {
+  composes: lineWin_vert;
+  right: 15%;
+}
+
+.lineWin_diag {
+  width: 120%;
+  height: 2%;
+  border-radius: 10px;
+  background-color: #f00;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  z-index: 500;
+}
+
+.lineWin_diag__down {
+  composes: lineWin_diag;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.lineWin_diag__up {
+  composes: lineWin_diag;
+  transform: translateX(-50%) rotate(-45deg);
+}
