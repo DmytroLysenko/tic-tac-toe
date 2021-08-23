@@ -34,7 +34,7 @@ export default function Setup({ onSetup }) {
     <div className={styles.backdrop}>
       <form className={styles.modal} onSubmit={handleSubmit}>
         <h2 className={styles.title}>Set up your Game</h2>
-        <h3>Select game mode</h3>
+        <h3 className={styles.subTitle}>Select game mode</h3>
         <div className={styles.mode}>
           <label>
             <input
@@ -56,7 +56,7 @@ export default function Setup({ onSetup }) {
             vs Player
           </label>
         </div>
-        <h3>Enter your name</h3>
+        <h3 className={styles.subTitle}>Enter your name</h3>
         <div className={styles.name}>
           <label>
             Player 1:
@@ -68,32 +68,41 @@ export default function Setup({ onSetup }) {
               value={namePlayer1}
             />
           </label>
-          <span>VS</span>
-          {!isVsComp ? (
-            <input
-              type="text"
-              placeholder="Player 2 name"
-              onChange={(e) => setNamePlayer2(e.target.value)}
-              value={namePlayer2}
-            />
-          ) : (
-            <span>Computer</span>
-          )}
+          <span>
+            <strong>VS</strong>
+          </span>
+
+          <label>
+            Player 2:
+            <br />
+            {!isVsComp ? (
+              <input
+                type="text"
+                placeholder="Player 2 name"
+                onChange={(e) => setNamePlayer2(e.target.value)}
+                value={namePlayer2}
+              />
+            ) : (
+              <span>Computer</span>
+            )}
+          </label>
         </div>
-        <h3>Select team</h3>
+        <h3 className={styles.subTitle}>Select team</h3>
         <div className={styles.team}>
           <p>
-            Player 1: <br /> {isPlayer1_X ? "X" : "O"}
+            Player 1: <br /> <strong>{isPlayer1_X ? "X" : "O"}</strong>
           </p>
           <button type="button" onClick={() => setIsPlayer1_X((prev) => !prev)}>
             Change
           </button>
           <p>
-            Player 2: <br /> {isPlayer1_X ? "O" : "X"}
+            Player 2: <br /> <strong>{isPlayer1_X ? "O" : "X"}</strong>
           </p>
         </div>
-        <p>X goes first ;)</p>
-        <button type="submit">Save and Start</button>
+        <p className={styles.message}>X goes first ;)</p>
+        <button className={styles.btnSubmit} type="submit">
+          Save and Start
+        </button>
       </form>
     </div>
   );

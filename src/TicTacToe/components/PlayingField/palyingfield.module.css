@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 5px;
+  gap: 4px;
   width: 400px;
   height: 400px;
 
@@ -13,8 +13,23 @@
 .item {
   background-color: #2b405f;
   padding: 10px;
-  border-radius: 10px;
   position: relative;
+}
+
+.item:first-child {
+  border-radius: 10% 0 0 0;
+}
+
+.item:nth-child(3) {
+  border-radius: 0 10% 0 0;
+}
+
+.item:nth-child(7) {
+  border-radius: 0 0 0 10%;
+}
+
+.item:nth-child(9) {
+  border-radius: 0 0 10% 0;
 }
 
 .item_free:hover {

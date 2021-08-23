@@ -26,7 +26,7 @@ class Game {
     this.isPlayer1_X = isPlayer1_X;
 
     if (this.isVsComp && !this.isPlayer1_X) {
-      this.cumputedNextStep();
+      this.cumputeNextStep();
     }
   }
 
@@ -36,7 +36,7 @@ class Game {
     this.winnerTeam = null;
     this.currentTeam = Game.X;
     if (this.isVsComp && !this.isPlayer1_X) {
-      this.cumputedNextStep();
+      this.cumputeNextStep();
     }
   }
 
@@ -76,10 +76,12 @@ class Game {
       return (this.winnerTeam = "draw");
     }
   }
-
-  cumputedNextStep() {
+  cumputeNextStep() {
     if (!this.gameMatrix[4]) {
-      return this.setStepCurrentTeam(4);
+      return setTimeout(() => {
+        console.log(this);
+        this.setStepCurrentTeam.call(this, 4);
+      }, 500);
     }
 
     const attackIdx = this.makeAttack();
@@ -103,10 +105,12 @@ class Game {
     this.setStepCurrentTeam(id);
 
     const isComputeNextStep =
-      this.isVsComp && this.isPlayer1_X === (this.currentTeam !== Game.X);
+      this.isVsComp &&
+      !this.winnerTeam &&
+      this.isPlayer1_X === (this.currentTeam !== Game.X);
 
     if (isComputeNextStep) {
-      this.cumputedNextStep();
+      this.cumputeNextStep();
     }
   }
 

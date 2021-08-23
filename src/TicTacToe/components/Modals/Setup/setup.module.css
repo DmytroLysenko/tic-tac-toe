@@ -14,12 +14,16 @@
 .modal {
   background-color: #fff;
   padding: 20px;
-  width: 70%;
+  width: 50%;
   border-radius: 10px;
 }
 
 .title {
-  margin: 0;
+  text-align: center;
+}
+
+.subTitle {
+  margin: 10px 0;
 }
 
 .mode {
@@ -33,12 +37,37 @@
   margin-right: 10px;
 }
 
-.name span {
-  margin: 0 10px;
+.name {
+  display: flex;
+  align-items: flex-end;
+}
+
+.name > label {
+  margin-right: 10px;
+}
+
+.name > span {
+  margin-right: 10px;
 }
 
 .team {
+  width: 70%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.message {
+  text-align: center;
+  font-style: italic;
+  color: #8a8080;
+  margin-bottom: 10px;
+}
+
+.btnSubmit {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
 }

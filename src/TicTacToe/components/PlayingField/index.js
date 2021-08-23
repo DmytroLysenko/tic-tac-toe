@@ -6,6 +6,7 @@ import styles from "./palyingfield.module.css";
 export default function PlayingField({ state, onNextStep, lineWin }) {
   const handleClick = (e) => {
     const id = e.target.dataset.id;
+    if (!id) return;
     if (!state[id] && !lineWin) {
       onNextStep(id);
     }
